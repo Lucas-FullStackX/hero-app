@@ -17,17 +17,15 @@ export default createStore({
   actions: {
     async getHeroes({ commit }, page) {
       try {
-        const results = [];
         commit("setHeroes", []);
-        for (let i = page * 10 - 9; i < page * 10; i++) {
-          const data = await axios(
-            `https://www.superheroapi.com/api.php/1501339270264465/${i}`
-          );
-          results.push(data.data);
-        }
-        console.log(page);
+        console.log("pagina:", page * 15, "hasta:", page * 15 - 15);
+        const data = await axios(
+          `https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=${15}&offset=${
+            page * 15 - 15
+          }&ts=1&apikey=5024257bb345193f6d39f9296b85dae2&hash=21ea133c2ceb9cfd51348f9d58efa3d7`
+        );
         commit("setPage", page);
-        commit("setHeroes", results);
+        commit("setHeroes", data.data.data.results);
       } catch (err) {
         console.log(err);
       }

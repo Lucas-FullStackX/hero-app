@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld />
   <Pagination />
 </template>
@@ -26,5 +25,14 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+body {
+  background-color: #fafafa;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #fff;
 }
 </style>

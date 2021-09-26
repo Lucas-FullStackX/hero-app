@@ -1,7 +1,7 @@
 <template>
   <div class="NextPage">
-    <button @click="nextPage((page += 1))">Add 1</button>
     <button v-if="page > 1" @click="nextPage((page -= 1))">take out 1</button>
+    <button @click="nextPage((page += 1))">Add 1</button>
   </div>
 </template>
 
